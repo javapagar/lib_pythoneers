@@ -4,7 +4,7 @@
 
 ## Description
 
-This library has been designed to optimize the first steps of a data science project. It contains functions that simplify data cleaning and data visualization. Mainly, Pythoneer will help you to choose the best machine learning model for your data.
+This library has been designed to optimize the first steps of a data science project. It contains functions that simplify data cleaning and data visualization. 
 
 ***
 
@@ -36,132 +36,173 @@ Clik on any link below to read deeper:
 
 Data cleaning:
 
- - [1.Function 1](#1-Function-1)
- - [2.Function 2](#2-Function-2)
- - [3.Function 3](#3-Function-3)
+ - [num_columns](#num_columns)
+ - [rem_col_nan](#rem_col_nan)
+ - [rem_outliers](#rem_outliers)
+ - [knn_missings](#knn_missings)
+ - [nlp_encoder](#nlp_encoder)
  
 Visualization:
-
- - [degrade_color](#degrade_color)
- - [color_palette](#color_palette)
- - [pythoneer_palette](#pythoneer_palette)
+ - [univariant](#univariant)
  - [categorical_columns](#categorical_columns)
  - [phik_matrix_simple](#phik_matrix_simple)
- - [univariant](#univariant)
-
-Machine learning:
-
- - [7.Function 7](#7-Function-7)
- - [8.Function 8](#8-Function-8)
- - [9.Function 9](#9-Function-9)
+ - [phik_matrix](#phik_matrix)
+ - [matrix_correlacion_simple](#matrix_correlacion_simple)
+ - [matrix_correlacion](#matrix_correlacion)
+ - [correlacion_target_simple](#correlacion_target_simple)
+ - [correlacion_target](#correlacion_target)
  
 ***
 
 ### Documentation
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### 1. Function 1
-This function blablabla
+
+### num_columns
+This function creates a list with the names of the numeric columns of a dataframe.
+It is also used on rem_outliers and knn_missings functions later.
 #### Params:
- - Param1: blublublu
- - Param2: bliblibli
-#### Code Example:
-'a=1'
+ - df : dataframe
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### 2. Function 2
-This function blablabla
+### rem_col_nan
+This function removes the columns with more than 30 % NaN, by default.
+The threshold can be be changed through the second param of the function.
 #### Params:
- - Param1: blublublu
- - Param2: bliblibli
-#### Code Example:
-'a=1'
+ - df = dataframe.
+ - per_na = threshold of NaN above which the column will be removed, by default 0.30.
+ - rem_print = prints the list with columns removed.
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### 3. Function 3
-This function blablabla
+### rem_outliers
+The rows with a value more than 3 z-score, will be removed.
+The z-score indicates if the number is an outlier.
+Z-Score could be changed through the second param of the function.
 #### Params:
- - Param1: blublublu
- - Param2: bliblibli
-#### Code Example:
-'a=1'
+- df = dataframe
+- z_num = limit of z-score to consider an outlier, by default 3.
+- shape_print: print the number of rows removed.
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### degrade_color
-Create a variable that contains a color map segmented into 255 parts (color degradation).
-#### Params:
-- list_color = hexadecimal color list.
-#### Code Example:
-deg_color = degrade_color(['#0879b1','#FFFFFF','#a61d39'])
-
-<a href="#index"><p align="right" href="#index">Back to index</p></a>
-### color_palette
-Create a custom color palette and use the names entered as variables in your code. The minimum value of the palette must be three color. 
- Return:
-- palette_2 = list of the first two colors.
-- palette_3 = list of the first three colors.
-- degrade_palette = variable with the gradient of the first two colors passing through white between the first color and the second.
-#### Params:
-- names = color name list
-- colors = hexadecimal colors list
-- BW = True value if you want to incorporate the color '#F08080' as 'white' and '#000000' as 'black'    
-#### Code Example:
-palette_2, palette_3, degrade_palette = color_palette (['blue','pink','red'],['#0879b1','#c41bab','#a61d39'], BW = True)
-
-<a href="#index"><p align="right" href="#index">Back to index</p></a>
-### pythoneer_palette
-Color palette predefined by the color blue ('#0879b1') and the color red ('#a61d39').
-#### Params:
-
-#### Code Example:
-'pythoneer, pythoneer_degrade = pythoneer_palette()
-
-<a href="#index"><p align="right" href="#index">Back to index</p></a>
-### categorical_columns
-Create a dataframe with the categorical columns.
+### knn_missings
+This function firstly calls the first function above to select the numeric columns of the dataframe and then replace the NaNs through a KNN algorithm.
+The return of the function replace the values on the original dataframe.
 #### Params:
 - df = dataframe.
-#### Code Example:
-categorical_df = categorical_columns(df)
+- n_ngb = number of neighbors of KNN, by default 3.
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### phik_matrix_simple
-Create a Phik Matrix
+### nlp_encoder
+This function compiles the most used encoders to have them all easily at hand, uses Sklearn and Pandas tools for its operation and currently has 4 functions
+which are called using their respective encoder.
+
+1º encoder = labelencoder:
+To use this encoder you must enter the column name that you want to be converted into multiple columns, it can be multiclass.
+
+2º encoder = binary:
+To use this encoder you must enter the column name that you want to be converted into 2 columns. This column must contain only 2 values, since the contained values are converted only into 0 and 1.
+
+3º encoder = onehotencoder:
+To use this encoder you must enter the column names that you want to be converted as many columns as there are variables. The function remove the original columns and add the new "variables columns" at the end.
+
+4º encoder = dummies:
+Similar to One hot encoder, you must enter the column names that you want to be converted as many columns as there are variables. The function remove the original columns and add the new "variables columns" at the end.
 #### Params:
 - df = dataframe.
-#### Code Example:
-phik_matrix_simple(df)
+- cols = list of columns to be transformed.
+- encoder = select as a string the desired encode to tranform:
+        - labelencoder
+        - binary
+        - onehotencoder
+        - dummies
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### univariant
-
+Function that graphically displays one numerical or categorical variable through a histogram and a boxplot, a countplot or a displot depending on the kind of variable informed (i.e. numerical or categorical variable, respectively).
+#### Params:
+- df: dataframe.
+- col_1: dataframe column (i.e. series) that contains the numeric or categorical variable to be displayed by the function. 
+- boxplot = False by default. If boxplot is informed as True, the function displays a boxplot instead of a histogram. It can only be used to dispolay numeric variables.
+ - rotation = rotation takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
+ - kde = Kernel Density Estimate is used to visualize the probability density of a continuous variable.It takes None by default.
+ - palette: the palette by default is the following list : ["#0879B1","#A61D39", "#92d7f6", "#d1979a"]
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### 7. Function 7
-This function blablabla
+### categorical_columns
+Create a new dataframe containing only the categorical variables of the original dataframe.
 #### Params:
- - Param1: blublublu
- - Param2: bliblibli
-#### Code Example:
-'a=1'
+- df = dataframe.
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### 8. Function 8
-This function blablabla
+### phik_matrix_simple
+Creates a Phik Matrix
 #### Params:
- - Param1: blublublu
- - Param2: bliblibli
-#### Code Example:
-'a=1'
+- df = dataframe.
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### 9. Function 9
-This function blablabla
+### phik_matrix
+Creates a Phik Matrix. The plot can be highly personalized through the params described below. 
 #### Params:
- - Param1: blublublu
- - Param2: bliblibli
-#### Code Example:
-'a=1'
+- df = dataframe.
+- title = title.
+- xlabel = x-axis label.
+- ylabel = y-axis label.
+- title_cbar = cbar's title.
+- palette = Insert color palette.
+- size_matrix = size of the matrix.
+- cbar = If True, create a bar plot.
+- cbar_orientation = orientation's bar plot, vertical'or 'horizontal'.
+- annot = If True, write the data value in each cell.
+- mask = If True, create a triangle correlation heatmap.
+- xticklabels = If True, plot the column names of the dataframe in x-axis. If False, don’t plot the column names.
+- xticklabels_rot = degrees of rotation of the xticklabels.
+- yticklabels = If True, plot the column names of the dataframe in y-axis. If False, don’t plot the column names. 
+- yticklabels_rot= degrees of rotation of the yticklabels.  
 
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### matrix_correlacion_simple
+Creates a correlation matrix.
+#### Params:
+- df = dataframe.
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### matrix_correlacion
+This function creates a correlation matrix. The plot can be highly personalized through the params described below.  
+#### Params:
+ Params:
+ - df = Dataframe
+ - title = title
+ - xlabel = x-axis label
+ - ylabel = y-axis label
+ - title_cbar = cbar's title
+ - palette = Insert color palette
+ - size_matrix = size of the matrix
+ - cbar = If True, create a bar plot
+ - cbar_orientation = orientation's bar plot, vertical'or 'horizontal'
+ - annot = If True, write the data value in each cell.
+ - mask = If True, create a triangle correlation heatmap
+ - xticklabels = If True, plot the column names of the dataframe in x-axis. If False, don’t plot the column names.
+ - xticklabels_rot = degrees of rotation of the xticklabels
+ - yticklabels = If True, plot the column names of the dataframe in y-axis. If False, don’t plot the column names. 
+ - yticklabels_rot = degrees of rotation of the yticklabels
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### correlacion_target_simple
+Creates a correlation matrix of the target with the rest of the variables in the dataframe.
+#### Params:
+- df = dataframe.
+- target: name of the target column
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### correlacion_target
+Create a correlation matrix of the target with the rest of the variables which can be highly personalized through the params described below.
+#### Params:
+- df = dataframe.
+- df: Dataframe
+- target: name of the target column
+- size = size of the matrix
+- palette = Insert color palette
+- title = title
+- cbar = If True, create a bar plot
 ***
 
 ### Memory
