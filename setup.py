@@ -8,7 +8,7 @@ setup(
   author = 'ds-ene21',                   # Type in your name
   author_email = 'captainvinager@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/javapagar/lib_pythoneers',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/javapagar/pip_install_clase/archive/refs/tags/v_04.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/javapagar/lib_pythoneers/archive/refs/tags/v_01.tar.gz',    # I explain this later on
   keywords = ['Machine Learning', 'Easy', 'Help','Visualization','Preprocessing','Cleaning'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'pandas',
