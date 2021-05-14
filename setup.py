@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
-  name = 'pythoneers',         # How you named your package folder (MyLib)
-  packages = ['pythoneers'],   # Chose the same as "name"
+  name = 'pythoneer',         # How you named your package folder (MyLib)
+  packages = ['pythoneer'],   # Chose the same as "name"
   version = '0.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Library created by Data Science Class of ene 2021',   # Give a short description about your library
@@ -9,7 +9,7 @@ setup(
   author_email = 'captainvinager@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/javapagar/lib_pythoneers',   # Provide either the link to your github or to your website
   download_url = 'https://github.com/javapagar/pip_install_clase/archive/refs/tags/v_04.tar.gz',    # I explain this later on
-  keywords = ['Machine Learning', 'Easy', 'Help','Visualization','Preprocessing'],   # Keywords that define your package best
+  keywords = ['Machine Learning', 'Easy', 'Help','Visualization','Preprocessing','Cleaning'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'pandas',
           'numpy',
@@ -19,8 +19,6 @@ setup(
           'seaborn',
           'scipy',
           'sklearn',
-          'folium',
-          'requests',
           'wordcloud',
           'phik'
       ],
