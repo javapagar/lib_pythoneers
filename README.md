@@ -54,7 +54,7 @@ Visualization:
  - [wordcloud_forms](#wordcloud_forms)
  - [goldcloud](#goldcloud)
  - [circle_wordcloud](#circle_wordcloud)
- - [simplewordcloud](#simplewordcloud)
+ - [simple_wordcloud](#simple_wordcloud)
  
 ***
 
