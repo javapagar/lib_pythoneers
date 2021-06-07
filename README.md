@@ -234,14 +234,6 @@ Show simple wordcloud with circle form.
 - stopwords: (Default: None)
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
-### circle_wordcloud
-Show simple wordcloud with circle form.
-#### Params:
-- text: string text to wordcloud
-- backgrouncolor: (Default: 'white')
-- stopwords: (Default: None)
-
-<a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### simple_wordcloud
 Show simple wordcloud with basic color.
 #### Params:
