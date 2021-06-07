@@ -10,10 +10,17 @@ import plotly as py
 
 import plotly.graph_objs as go
 
-from wordcloud import WordCloud
 
 import phik
 from pylab import *
+
+from wordcloud import WordCloud, ImageColorGenerator
+from PIL import Image
+import re
+from collections import Counter
+import random
+import os
+
 
 # Commented out IPython magic to ensure Python compatibility.
 def univariant(df,col_1,palette = ["#0879B1","#A61D39", "#92d7f6", "#d1979a"],kde = False, boxplot = False, rotation = False):
@@ -322,3 +329,93 @@ def correlacion_target(df, target, size = (2, 5), palette = ['#0879b1', '#FFFFFF
     heatmap = sns.heatmap(df.corr()[[target]].sort_values(by = target, ascending = False), vmin = -1,vmax = 1,
                           annot = True, cmap = cmap, cbar = cbar, square = True, center = 0, linewidths = .5)
     heatmap.set_title(title, pad = pad)
+    
+    def wordcloud_forms(image_pad, text, background_color="white", stopwords=None):
+    
+    """ 
+    Show wordcloud with form and colour based on uploaded png. image.
+    
+    Params:
+        image_pad: Write a string with the png directory.
+        text: string text to wordcloud
+        background_color: (Default: 'White')
+        stopwords: (Default: None)
+    """
+    
+    custom_mask = np.array(Image.open(image_pad))
+    wc = WordCloud(width=1000, height=1000, background_color = background_color , mask=custom_mask, stopwords = stopwords)
+    wc.generate(text)
+    image_colors = ImageColorGenerator(custom_mask)
+    wc.recolor(color_func=image_colors)
+    plt.imshow(wc, interpolation='bilinear')
+    plt.axis("off")
+    plt.figure(figsize=(10,8))
+    plt.show();
+    
+    def goldcloud(text, background_color = 'black', stopwords=None):
+    
+        
+    """ 
+    Show luxury wordcloud with golden letters and black background.
+    
+    Params:
+        text: string text to wordcloud
+        background_color: (Default: 'Black')
+        stopwords: (Default: None)
+    """
+    
+
+    wc = WordCloud(background_color = background_color,
+                width = 1200,
+                height = 1000,
+                color_func = gold_color_func,
+                stopwords = stopwords).generate(text)
+
+    plt.imshow(wc)
+    plt.axis('off')
+    plt.show()
+    
+    def circle_wordcloud(text, background_color = 'white', stopwords=None):
+    
+    """ 
+    Show simple wordcloud with circle form.
+    
+    Params:
+        text: string text to wordcloud
+        background_color: (Default: 'white')
+        stopwords: (Default: None)
+    """
+
+    x, y = np.ogrid[:300, :300]
+
+    mask = (x - 150) ** 2 + (y - 150) ** 2 > 130 ** 2
+    mask = 255 * mask.astype(int)
+
+
+    wc = WordCloud(background_color = background_color, repeat=True, mask=mask, stopwords = stopwords)
+    wc.generate(text)
+
+    plt.axis("off")
+    plt.imshow(wc, interpolation="bilinear")
+    plt.show()
+    
+    def simplewordcloud(text, background_color = 'black', stopwords=None):
+    
+    """ 
+    Show simple wordcloud with basic color.
+    
+    Params:
+        text: string text to wordcloud
+        background_color: (Default: 'black')
+        stopwords: (Default: None)
+    """
+
+    wc = WordCloud(background_color = background_color,
+                width = 1200,
+                height = 1000,
+                color_func = team_color_func,
+                stopwords = stopwords).generate(text)
+
+    plt.imshow(wc)
+    plt.axis('off')
+    plt.show()
