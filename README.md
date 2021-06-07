@@ -51,6 +51,10 @@ Visualization:
  - [matrix_correlacion](#matrix_correlacion)
  - [correlacion_target_simple](#correlacion_target_simple)
  - [correlacion_target](#correlacion_target)
+ - [wordcloud_forms](#wordcloud_forms)
+ - [goldcloud](#goldcloud)
+ - [circle_wordcloud](#circle_wordcloud)
+ - [simplewordcloud](#simplewordcloud)
  
 ***
 
@@ -203,6 +207,50 @@ Create a correlation matrix of the target with the rest of the variables which c
 - palette = Insert color palette
 - title = title
 - cbar = If True, create a bar plot
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### wordcloud_forms
+Show wordcloud with form and colour based on uploaded png. image
+#### Params:
+- image_pad: Write a string with the png directory.
+- text: string text to wordcloud
+- background_color: (Default: 'White')
+- stopwords: (Default: None)
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### goldcloud
+Show luxury wordcloud with golden letters and black background.
+#### Params:
+- text: string text to wordcloud
+- backgrouncolor: (Default: 'Black')
+- stopwords: (Default: None)
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### circle_wordcloud
+Show simple wordcloud with circle form.
+#### Params:
+- text: string text to wordcloud
+- backgrouncolor: (Default: 'white')
+- stopwords: (Default: None)
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### circle_wordcloud
+Show simple wordcloud with circle form.
+#### Params:
+- text: string text to wordcloud
+- backgrouncolor: (Default: 'white')
+- stopwords: (Default: None)
+
+<a href="#index"><p align="right" href="#index">Back to index</p></a>
+### simple_wordcloud
+Show simple wordcloud with basic color.
+#### Params:
+- text: string text to wordcloud
+- backgrouncolor: (Default: 'black')
+- stopwords: (Default: None)
+
+
+
 ***
 
 ### Memory
