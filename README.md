@@ -186,11 +186,11 @@ Function that graphically displays the combination of a categorical and a numeri
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### bivariant_all
-This function shows the relation between two numeric variables through the most appropiate plot depending on the type of variables informed.
+This function has been created to be by the overview´s function, but it can be used independently.
+bivariant_all shows the relation between two numeric variables through the most appropiate plot depending on the type of variables informed.
 - Two numeric variables are displayed through a scatterplot.
 - Two categorical variables are displayed through a catplot.
-- A categorical and a numeric variable are displayed through a treeplot. 
-It has been created to be called from the overview function, but can be used independently.      
+It has been created to be called       
 #### Params: 
 - df : dataframe.
 - col_1 : dataframe column (i.e. series) containing the first variable to be plotted. 
