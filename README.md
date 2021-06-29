@@ -187,10 +187,10 @@ Function that graphically displays the combination of a categorical and a numeri
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### bivariant_all
 This function shows the relation between two numeric variables through the most appropiate plot depending on the type of variables informed.
-It has been created to be called from the overview function, but can be used independently.        
-    - Two numeric variables are displayed through a scatterplot.
-    - Two categorical variables are displayed through a catplot.
-    - A categorical and a numeric variable are displayed through a treeplot.   
+- Two numeric variables are displayed through a scatterplot.
+- Two categorical variables are displayed through a catplot.
+- A categorical and a numeric variable are displayed through a treeplot. 
+It has been created to be called from the overview function, but can be used independently.      
 #### Params: 
 - df : dataframe.
 - col_1 : dataframe column (i.e. series) containing the first variable to be plotted. 
@@ -236,10 +236,8 @@ It only admits two numerical variables as x and y and a third categorical or bin
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### overview
 1. Description
-
 Function that graphically displays up to three variables through through the most appropiate kind of plot depending on the variables provided, as well as a Phick
 matrix in case that a whole dataframe is provided.
-
 The plots displayed depend on the number and kind (numeric or categorical) of the variables provided:
 - One numerical varible is displayed through a through a displot or a boxplot, if the argument boxplot is introduced.
 - One categorical variable is displayed through a countplot.
@@ -250,7 +248,6 @@ The plots displayed depend on the number and kind (numeric or categorical) of th
 - If a whole dataframe is provided, the function displays a Phick matrix for all variables in the dataframe.    
 
 2. Functions used by overview´s function.
-
 The overview function uses the following functions from this same library. Please refer to their corresponding documentation for more clarification.
 - univariant
 - bivariant_num
