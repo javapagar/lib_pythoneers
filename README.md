@@ -136,18 +136,7 @@ Function that graphically displays one numerical or categorical variable through
 - kde: kde refers to Kernel Density Estimate, which is used for visualizing the probability density of a continuous variable.It takes None by default.
 - palette: the palette by default is the following list: ["#0879B1","#A61D39", "#92d7f6", "#d1979a"], it can be changed for any Seaborn palette.
 - xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
-
-<a href="#index"><p align="right" href="#index">Back to index</p></a>
-### univariant
-Function that graphically displays one numerical or categorical variable through a distplot/boxplot and a countplot, respectively.
-#### Params:     
-- df: dataframe.
-- col_1: dataframe column (i.e. series) that contains the numeric or categorical variable to be displayed. 
-- boxplot: False by default. If boxplot is informed as True, the function displays a boxplot instead of a histogram. It can only be used with numeric variables.
-- rotation: rotation takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
-- kde: kde refers to Kernel Density Estimate, which is used for visualizing the probability density of a continuous variable.It takes None by default.
-- palette: the palette by default is the following list: ["#0879B1","#A61D39", "#92d7f6", "#d1979a"], it can be changed for any Seaborn palette.
-- xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
+- color: this parameter is used to change the color of the plot. The color by default is "#A61D39".
 #### Examples:
 - univariant(titanic_df,titanic_df["Age"],kde = True);
 - univariant(titanic_df,titanic_df["Fare"],kde= True,palette = "rocket", boxplot = True,xlabel = "Tarifa");
@@ -157,80 +146,79 @@ Function that graphically displays one numerical or categorical variable through
 ### bivariant_num
 Function that graphically displays two numeric variables through a scatterplot.
 #### Params:     
-     - df: dataframe.
-     - col_1: dataframe column (i.e. series) containing the numeric variable to be displayed on the x axis.
-     - col_2: dataframe column (i.e. series) containing the numeric variable to be displayed on the y axis.
-     - color: this parameter is used to change the color. The color by default is "#0879B1".
-     - xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
-     - ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
+- df: dataframe.
+- col_1: dataframe column (i.e. series) containing the numeric variable to be displayed on the x axis.
+- col_2: dataframe column (i.e. series) containing the numeric variable to be displayed on the y axis.
+- color: this parameter is used to change the color of the plot. The color by default is "#0879B1".
+- xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
+- ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
 #### Examples:
-bivariant_num(titanic_df,titanic_df["Age"],titanic_df["Fare"],xlabel= "Age", ylabel = "Fare");
+- bivariant_num(titanic_df,titanic_df["Age"],titanic_df["Fare"],xlabel= "Age", ylabel = "Fare");
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### bivariant_cat
 Function that graphically displays two categorical or binary variables through a catplot.  
 The values of the first variable are displayed on the x-axis as bars, with a count of values on the y-axis. 
 The second variable is displayed through the different colors of the bars in the catplot.
-#### Params: 
-    
-     - df: T dataframe.
-     - col_1: dataframe column (i.e. series) containing the first categorical variable, to be displayed through the bars.
-     - col_2: dataframe column (i.e. series) containing the categorical variable, to be displayed through the color of the bars.
-     - rotation: rotation takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
-     - palette: this parameter is used to inform a different Seaborn´s palette. The palette by default is "rocket".
-     - xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
-     - ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
+#### Params:     
+- df: dataframe.
+- col_1: dataframe column (i.e. series) containing the first categorical variable, to be displayed through the bars.
+- col_2: dataframe column (i.e. series) containing the categorical variable, to be displayed through the color of the bars.
+- rotation: rotation takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
+- palette: this parameter is used to inform a different Seaborn´s palette. The palette by default is "rocket".
+- xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
+- ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
 #### Examples:
-bivariant_cat(titanic_df,titanic_df["Sex"],titanic_df["Embarked"], xlabel = "Género", ylabel = "Num. personas", rotation = True);
-bivariant_cat(suic_df,suic_df["country"],suic_df["sex"],rotation = True, xlabel = "Country",palette = "viridis");
+- bivariant_cat(titanic_df,titanic_df["Sex"],titanic_df["Embarked"], xlabel = "Género", ylabel = "Num. personas", rotation = True);
+- bivariant_cat(suic_df,suic_df["country"],suic_df["sex"],rotation = True, xlabel = "Country",palette = "viridis");
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### bivariant_cat_num
 Function that graphically displays the combination of a categorical and a numeric variable through a treeplot.
 #### Params: 
-     - df: dataframe.
-     - col_1: dataframe column (i.e. series) containing the categorical variable.
-     - col_2: dataframe column (i.e. series) containing the numerical variable.
-     - palette: this argument is used to change the Seaborn´s palette. The palette by default is "rocket".
+- df: dataframe.
+- col_1: dataframe column (i.e. series) containing the categorical variable.
+- col_2: dataframe column (i.e. series) containing the numerical variable.
+- palette: this argument is used to change the Seaborn´s palette. The palette by default is "rocket".
 #### Examples:
-bivariant_cat_num(titanic_df,titanic_df["Sex"],titanic_df["Fare"]);
-bivariant_cat_num(titanic_df,titanic_df["Fare"],titanic_df["Embarked"]);
+- bivariant_cat_num(titanic_df,titanic_df["Sex"],titanic_df["Fare"]);
+- bivariant_cat_num(titanic_df,titanic_df["Fare"],titanic_df["Embarked"]);
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### bivariant_all
-    This function shows the relation between two numeric variables through the most appropiate plot depending on the type of variables informed.
-    It has been created to be called from the overview function, but can be used independently.        
-        - Two numeric variables are displayed through a scatterplot.
-        - Two categorical variables are displayed through a catplot.
-        - A categorical and a numeric variable are displayed through a treeplot.   
+This function shows the relation between two numeric variables through the most appropiate plot depending on the type of variables informed.
+It has been created to be called from the overview function, but can be used independently.        
+    - Two numeric variables are displayed through a scatterplot.
+    - Two categorical variables are displayed through a catplot.
+    - A categorical and a numeric variable are displayed through a treeplot.   
 #### Params: 
-    - df : dataframe.
-    - col_1 : dataframe column (i.e. series) containing the first variable to be plotted. 
-    - col_2 : dataframe column (i.e. series) containing the second variable to be plotted.
-    - rotation: it takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
-    - color: The color to be displayed by the scatterplot when only two numeric variables are provided. Color is red ("#A61D39") by default.
-    - palette: this parameter is used to inform a different Seaborn´s palette. The palette by default is "rocket".
-    - xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
-    - ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
+- df : dataframe.
+- col_1 : dataframe column (i.e. series) containing the first variable to be plotted. 
+- col_2 : dataframe column (i.e. series) containing the second variable to be plotted.
+- rotation: it takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
+- color: The color to be displayed by the scatterplot when only two numeric variables are provided. Color is red ("#A61D39") by default.
+- palette: this parameter is used to inform a different Seaborn´s palette. The palette by default is "rocket".
+- xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
+- ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
 #### Examples:
-bivariant_all(titanic_df,titanic_df["Fare"],titanic_df["Survived"],palette= "viridis", xlabel = "Fare");
-bivariant_all(autism_df,autism_df["country_of_res"],autism_df["class"],palette= "viridis", xlabel = "Country");
-bivariant_all(autism_df,autism_df["country_of_res"],autism_df["screening_score"],xlabel = "Country", ylabel = "Score");
+- bivariant_all(titanic_df,titanic_df["Fare"],titanic_df["Survived"],palette= "viridis", xlabel = "Fare");
+- bivariant_all(autism_df,autism_df["country_of_res"],autism_df["class"],palette= "viridis", xlabel = "Country");
+- bivariant_all(autism_df,autism_df["country_of_res"],autism_df["screening_score"],xlabel = "Country", ylabel = "Score");
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### trivariant_num
-    This function shows the relation between three variables through a scatterplot.  
-    It only admits two numerical variables as x and y and a third categorical or binary variable as hue.
+This function shows the relation between three variables through a scatterplot.  
+It only admits two numerical variables as x and y and a third categorical or binary variable as hue.
 #### Params: 
-    - df: dataframe.
-    - col_1: dataframe column (i.e. series) containing the numeric variable to be displayed on the x axis.
-    - col_2: dataframe column (i.e. series) containing the numeric variable to be displayed on the y axis.
-    - hue: dataframe column´s name (i.e. string). It refers to the variable to be displayed through the colors of the scatterplot´s points, which must be a 
-     a categorical or binary variable. Hue takes None by default.
-    - rotation: It takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation. 
-    - palette: this parameter is used to inform a different Seaborn´s palette. The palette by default is "rocket".
-    - xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
-    - ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
+- df: dataframe.
+- col_1: dataframe column (i.e. series) containing the numeric variable to be displayed on the x axis.
+- col_2: dataframe column (i.e. series) containing the numeric variable to be displayed on the y axis.
+- hue: dataframe column´s name (i.e. string). It refers to the variable to be displayed through the colors of the scatterplot´s points, which must be a 
+ a categorical or binary variable. Hue takes None by default.
+- rotation: It takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation. 
+- palette: this parameter is used to inform a different Seaborn´s palette. The palette by default is "rocket".
+- xlabel: False by default. It is used to define the xlabel. It must be introduced as a string.
+- ylabel: False by default. It is used to define the ylabel. It must be introduced as a string.
 #### Examples:
 - trivariant_num(titanic_df,titanic_df['Age'],titanic_df['Fare'], hue = "Sex", palette = "viridis", xlabel = "Passenger´s age", ylabel = "Fare in euros");
 - trivariant_num(titanic_df,titanic_df["Embarked"], titanic_df["Fare"],hue ='Survived');
@@ -247,47 +235,45 @@ bivariant_all(autism_df,autism_df["country_of_res"],autism_df["screening_score"]
 
 <a href="#index"><p align="right" href="#index">Back to index</p></a>
 ### overview
-    1. Description
-    
-    Function that graphically displays up to three variables through through the most appropiate kind of plot depending on the variables provided, as well as a Phick
-    matrix in case that a whole dataframe is provided.
-    
-    The plots displayed depend on the number and kind (numeric or categorical) of the variables provided:
-    
-    - One numerical varible is displayed through a through a displot or a boxplot, if the argument boxplot is introduced.
-    - One categorical variable is displayed through a countplot.
-    - Two numeric variables are displayed through a scatterplot.
-    - Two categorical variables are displayed through a catplot.
-    - A categorical and a numeric variable are displayed through a treeplot.   
-    - The relation between three variables is displayed through a scatterplot. The third variable is introduced as hue and must be a categorical or binary variable.
-    - If a whole dataframe is provided, the function displays a Phick matrix for all variables in the dataframe.    
-    
-    2. Funtions used
-    
-    The overview function uses the following functions from this same library. 
-    Please refer to their corresponding documentation for more clarification.
-    
-    - univariant
-    - bivariant_num
-    - bivariant_cat
-    - bivariant_cat_num
-    - bivariant_all
-    - trivariant_num
-    - phik_matrix_simple    
+1. Description
+
+Function that graphically displays up to three variables through through the most appropiate kind of plot depending on the variables provided, as well as a Phick
+matrix in case that a whole dataframe is provided.
+
+The plots displayed depend on the number and kind (numeric or categorical) of the variables provided:
+- One numerical varible is displayed through a through a displot or a boxplot, if the argument boxplot is introduced.
+- One categorical variable is displayed through a countplot.
+- Two numeric variables are displayed through a scatterplot.
+- Two categorical variables are displayed through a catplot.
+- A categorical and a numeric variable are displayed through a treeplot.   
+- The relation between three variables is displayed through a scatterplot. The third variable is introduced as hue and must be a categorical or binary variable.
+- If a whole dataframe is provided, the function displays a Phick matrix for all variables in the dataframe.    
+
+2. Functions used by overview´s function.
+
+The overview function uses the following functions from this same library. Please refer to their corresponding documentation for more clarification.
+- univariant
+- bivariant_num
+- bivariant_cat
+- bivariant_cat_num
+- bivariant_all
+- trivariant_num
+- phik_matrix_simple  
+  
 #### Params: 
-    - df: dataframe.
-    - col_1:  dataframe´s column (i.e. series) containing the fist variable.
-    - col_2: dataframe´s column (i.e. series) containing the second variable.
-    - hue: dataframe column´s name (i.e. string). It refers to the variable to be displayed through the colors of the scatterplot´s points, which must be a 
-     a categorical or binary variable. Hue takes None by default.                 
-    - boxplot: False by default. If boxplot is informed as True, the function displays a boxplot instead of a histogram. It can only be used with numeric variables.
-    - kde = kde stands for Kernel Density Estimate, which is used for visualizing the probability density of a continuous variable.It takes None by default.
-    - rotation = It takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
-    - color: The color to be displayed by the scatterplot when two numeric variables are provided. Color is red ("#A61D39") by default.
-    - palette: the palette by default is "rocket". This parameter is used to inform a different Seaborn´s palette than the palette by default.
-    - nuevo_cmap: False by default. This parameter is used to change the Phick matrix´s colormap. . Example: nuevo_cmap = sns.diverging_palette(150, 275, s=80, l=55, n=9)
-    - xlabel: False by default. This parameter is introduce a label for the x axes and it must be introduced as a string.
-    - ylabel: False by default. This parameter is introduce a label for the y axes and it must be introduced as a string.
+- df: dataframe.
+- col_1:  dataframe´s column (i.e. series) containing the fist variable.
+- col_2: dataframe´s column (i.e. series) containing the second variable.
+- hue: dataframe column´s name (i.e. string). It refers to the variable to be displayed through the colors of the scatterplot´s points, which must be a 
+ a categorical or binary variable. Hue takes None by default.                 
+- boxplot: False by default. If boxplot is informed as True, the function displays a boxplot instead of a histogram. It can only be used with numeric variables.
+- kde = kde stands for Kernel Density Estimate, which is used for visualizing the probability density of a continuous variable.It takes None by default.
+- rotation = It takes None by default. If rotation is informed as True, the labels for x values are displayed with a 45 º rotation.
+- color: The color to be displayed by the scatterplot when two numeric variables are provided. Color is red ("#A61D39") by default.
+- palette: the palette by default is "rocket". This parameter is used to inform a different Seaborn´s palette than the palette by default.
+- nuevo_cmap: False by default. This parameter is used to change the Phick matrix´s colormap. . Example: nuevo_cmap = sns.diverging_palette(150, 275, s=80, l=55, n=9)
+- xlabel: False by default. This parameter is introduce a label for the x axes and it must be introduced as a string.
+- ylabel: False by default. This parameter is introduce a label for the y axes and it must be introduced as a string.
    
 #### Examples:
 - overview(titanic_df, nuevo_cmap = sns.diverging_palette(220, 20, as_cmap=True),xlabel = "Age", ylabel = "Fare"); 
